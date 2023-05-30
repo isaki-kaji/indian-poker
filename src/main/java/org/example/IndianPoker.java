@@ -59,7 +59,7 @@ public class IndianPoker {
                 for (int j = 0; j < 13; j++) {
                     if (cards[i][j] == 0) {
                         int[] droppedCard = { i, j };
-                        System.out.print(display(droppedCard).substring(display(droppedCard).length() - 2));
+                        System.out.print(display(droppedCard).substring(display(droppedCard).length() - 2)+" ");
                     }
                 }
             }
@@ -98,8 +98,7 @@ public class IndianPoker {
             if (cards[randomMark][randomNumber] != 0) {
                 cards[randomMark][randomNumber] = 0;
 
-                int[] yourCard = { randomMark, randomNumber };
-                return yourCard;
+                return new int[]{ randomMark, randomNumber };
             }
         }
     }
@@ -109,18 +108,13 @@ public class IndianPoker {
         if (card[1] < 9) {
             return marks[card[0]] + (+(card[1] + 2));
         } else {
-            switch (card[1]) {
-                case 9:
-                    return marks[card[0]] + "J";
-                case 10:
-                    return marks[card[0]] + "Q";
-                case 11:
-                    return marks[card[0]] + "K";
-                case 12:
-                    return marks[card[0]] + "A";
-                default:
-                    return "";
-            }
+            return switch (card[1]) {
+                case 9 -> marks[card[0]] + "J";
+                case 10 -> marks[card[0]] + "Q";
+                case 11 -> marks[card[0]] + "K";
+                case 12 -> marks[card[0]] + "A";
+                default -> "";
+            };
         }
     }
 
