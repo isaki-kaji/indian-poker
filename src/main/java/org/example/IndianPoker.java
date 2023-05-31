@@ -5,6 +5,15 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Random;
 
+/*read me
+ *
+ * ・2次元配列を使ってインディアンポーカーゲームを作成します。
+ *
+ * ・クラスは使いません。
+ *
+ */
+
+
 public class IndianPoker {
 
     static String[] marks = { "スペード　", "ハート　　", "ダイヤ　　", "クラブ　　" };
@@ -106,7 +115,7 @@ public class IndianPoker {
     //基本intだけで管理しているため、表示用に変換する関数
     static String display(int[] card) {
         if (card[1] < 9) {
-            return marks[card[0]] + (+(card[1] + 2));
+            return marks[card[0]] + ((card[1] + 2));
         } else {
             return switch (card[1]) {
                 case 9 -> marks[card[0]] + "J";
